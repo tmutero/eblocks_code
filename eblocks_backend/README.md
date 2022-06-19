@@ -37,7 +37,7 @@ Then create ``.env`` file (or rename and modify ``.env.example``) in project roo
 
 Auto create database tables run the command below [**You should be in eblocks_code/eblocks_backend/app floder] :
    
-   python models.py
+    python models.py
 
 
 To run the web application in debug use: ::
