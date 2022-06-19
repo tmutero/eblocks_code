@@ -1,0 +1,53 @@
+
+<div>
+    <form>
+        <label for="contactName">First Name</label>
+        <input #contactName id="contactName" [(ngModel)]="contact.name" name="name" type="text" autocomplete="off"
+            [ngClass]="{ 'has-error': submitting && invalidName() }"
+            (focus)="clearStatus()"
+            (keypress)="clearStatus()"        
+        />    
+        <label for="surname">Surname</label>
+        <input id="surname" [(ngModel)]="contact.surname" name="surname" type="text" autocomplete="off" 
+            [ngClass]="{ 'has-error': submitting && invalidSurname() }"
+            (focus)="clearStatus()"        
+        />
+
+        <label for="contactEmail">Phone Number</label>
+        <input id="value" [(ngModel)]="contact.value" name="value" type="number" autocomplete="off" 
+            [ngClass]="{ 'has-error': submitting && invalidValue() }"
+            (focus)="clearStatus()"        
+        />
+
+        <label for="contactEmail">Contact Type</label>
+        <input id="contactEmail" [(ngModel)]="contact.contactType" name="contactType" type="text" autocomplete="off" 
+            [ngClass]="{ 'has-error': submitting && invalidContactType() }"
+            (focus)="clearStatus()"        
+        />
+
+        <label for="email_address">Email</label>
+        <input id="email_address" [(ngModel)]="contact.email_address" name="email_address" type="text" autocomplete="off" 
+            [ngClass]="{ 'has-error': submitting && invalidEmail() }"
+            (focus)="clearStatus()"        
+        />
+
+        <label for="company">Company Name</label>
+        <input id="company" [(ngModel)]="contact.company" name="company" type="text" autocomplete="off" 
+            [ngClass]="{ 'has-error': submitting && invalidCompany() }"
+            (focus)="clearStatus()"        
+        />
+
+        <label for="address">Physical Address</label>
+        <input id="address" [(ngModel)]="contact.address" name="address" type="text" autocomplete="off" 
+            [ngClass]="{ 'has-error': submitting && invalidAddress() }"
+            (focus)="clearStatus()"        
+        />
+       
+    
+        <p *ngIf="error && submitting" class="error-message">
+            ❗ Please fill out all required fields
+        </p>
+        <p *ngIf="success" class="success-message">✅ Contact successfully added</p>        
+        <button (click)="onAddContact()">➕ Add Contact</button>
+    </form>
+</div>

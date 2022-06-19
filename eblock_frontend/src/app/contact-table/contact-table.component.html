@@ -1,0 +1,62 @@
+
+<div>
+    <ng-template #noData>
+        <p class="empty-table">No contacts</p>
+    </ng-template>
+
+    <ng-container *ngIf="contacts.length > 0; else noData">
+        <table class="striped-table">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>FirstName</th>
+                    <th>Surname</th>
+                    <th>Phone Number</th>
+                    <th>Contact Type</th>
+                    <th>Company</th>
+                    <th>Address</th>
+                    <th>Email</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let contact of contacts; index as index" [ngClass]="getRowClasses(contact.id)">
+                    <td>{{index + 1}}.</td>
+
+                    <!-- Use a template to show editing mode rows vs not editing rows -->
+                    <ng-container
+                        *ngTemplateOutlet="isEditing(contact.id) ? editing: notEditing">
+                    </ng-container>
+                    <ng-template #editing>                        
+                        <td> <input type="text" [(ngModel)]="contact.name" name="name" autocomplete="off"/> </td>
+                        <td> <input type="text" [(ngModel)]="contact.surname" name="surname" autocomplete="off"/> </td>
+                        <td> <input type="text" [(ngModel)]="contact.value" name="value" autocomplete="off"/> </td>
+                        <td> <input type="text" [(ngModel)]="contact.contactType" name="contactType" autocomplete="off"/> </td>
+                        <td> <input type="text" [(ngModel)]="contact.company" name="company" autocomplete="off"/> </td>
+                        <td> <input type="text" [(ngModel)]="contact.address" name="address" autocomplete="off"/> </td>
+                        <td> <input type="text" [(ngModel)]="contact.email_address" name="email_address" autocomplete="off"/> </td>
+                        
+                        <td>
+                            <button (click)="onCancelEdit(contact)" class="muted-button" title="Cancel">❌</button> 
+                            <button (click)="onEditContact(contact)" class="btn-success" title="Save">💾</button>
+                        </td>
+                    </ng-template>                       
+                    <ng-template #notEditing>
+                       
+                        <td>{{ contact.name }}</td>
+                        <td>{{ contact.surname }}</td>
+                        <td>{{ contact.value }}</td>
+                        <td>{{ contact.contactType }}</td>
+                        <td>{{ contact.company }}</td>
+                        <td>{{ contact.address }}</td>
+                        <td>{{ contact.email_address }}</td>
+                        <td>
+                            <button (click)="onBeginEdit(contact)" title="Update">📝</button>
+                            <button (click)="onDeleteContact(contact)" class="btn-danger" title="Delete">🗑️</button>
+                        </td>
+                    </ng-template>                                    
+                </tr>               
+            </tbody>
+          </table>
+    </ng-container>
+</div>

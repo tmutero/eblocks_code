@@ -1,0 +1,40 @@
+
+<!-- Toolbar -->
+<div class="toolbar" role="banner">
+    <a [href]="baseUrl">
+        <span class="title">{{ title }}</span>
+    </a>
+</div>
+  
+<div class="content">
+    <h1>Contacts</h1>
+    
+   <div class="row">
+       <div class="col-md-4"> 
+           <app-contact-form 
+             (addContact)="onAddContact($event)">
+            </app-contact-form>    
+        </div>
+       <div class="col-md-8">
+        <ng-container
+        *ngTemplateOutlet="!contactsLoaded ? loading: contactsTable">
+    </ng-container>
+    <ng-template #loading>
+        <div style="text-align: center;">
+            <app-loading></app-loading>
+        </div>
+    </ng-template>
+        <ng-template #contactsTable>
+            <app-contact-table 
+                [contacts]="contacts"
+                (editContact)="onEditContact($event)"
+                (deleteContact)="onDeleteContact($event)"
+            ></app-contact-table>
+        </ng-template>   
+       </div>
+   </div>
+
+    <!-- Use a template to show a loading indicator when fetching contacts -->
+  
+   
+</div>

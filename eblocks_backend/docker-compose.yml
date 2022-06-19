@@ -1,0 +1,22 @@
+version: '3'
+
+services:
+  web:
+    build: .
+    ports:
+       - 5000:5000
+    env_file:
+      - .env
+    depends_on:
+      - db
+  db:
+    image: mysql
+    ports:
+      - "3306:3306"
+    # env_file:
+    #   - .env
+    environment:
+      MYSQL_DATABASE: eblocks
+      MYSQL_ROOT_USER: root
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_ROOT_HOST: localhost
