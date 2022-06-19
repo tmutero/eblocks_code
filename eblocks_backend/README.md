@@ -1,4 +1,4 @@
-# FastAPI example app
+# Eblocks Backend
 
 This repository contains code for asynchronous example api using the [Fast Api framework](https://fastapi.tiangolo.com/) ,Uvicorn server and Postgres Database to perform crud operations on notes.
 
@@ -20,7 +20,7 @@ Then run the following commands to clone application ::
 
     git clone https://github.com/tmutero/eblocks_code.git
 
-    cd eblocks_code
+    cd eblocks_code/eblocks_backend
 
 Installing the packages need to run backend::
 
@@ -35,14 +35,21 @@ Then create ``.env`` file (or rename and modify ``.env.example``) in project roo
     DBNAME="eblocks"
 
 
-To run the web application in debug use init mysql db: ::
+Auto create database tables run the command below [**You should be in eblocks_code/eblocks_backend/app floder] :
+   
+   python models.py
+
+
+To run the web application in debug use: ::
 
 On Windows 
 
     uvicorn app.main:application --host 127.0.0.1 --port 5000
 
-Mac or Linux 
-    sh run.sh or uvicorn app.main:application --host 127.0.0.1 --port 5000
+Mac or Linux use below command or same windows command above ::
+
+    sh run.sh 
+
 
 ## Tests
 
