@@ -7,12 +7,24 @@ This repository contains code for asynchronous example api using the [Fast Api f
 Quickstart
 ----------
 
-Then run the following commands to bootstrap your environment with ``poetry``: ::
+Create Python Environment::
 
-    git clone https://github.com/xiaozl/fastapi-realworld-example-app-mysql.git
-    cd fastapi-realworld-example-app-mysql
-    poetry install
-    poetry shell
+    python3 -m venv eblocks_env
+    cd eblocks_env
+
+Activate Environment::
+
+    source bin/activate
+
+Then run the following commands to clone application ::
+
+    git clone https://github.com/tmutero/eblocks_code.git
+
+    cd eblocks_code
+
+Installing the packages need to run backend::
+
+    pip install -r requirements.text
 
 Then create ``.env`` file (or rename and modify ``.env.example``) in project root and set environment variables for application: ::
     
@@ -26,31 +38,21 @@ Then create ``.env`` file (or rename and modify ``.env.example``) in project roo
 To run the web application in debug use init mysql db: ::
 
 On Windows 
+
     uvicorn app.main:application --host 127.0.0.1 --port 5000
 
 Mac or Linux 
-    sh run.sh
-
-## Installation method 2 (Run Locally using Docker)
-
-1.Ensure [Docker](https://docs.docker.com/install/) is installed
-2.Ensure [Docker Compose](https://docs.docker.com/compose/install/) is installed
-3.Clone this Repo
-`git clone (https://github.com/KenMwaura1/Fast-Api-example)`
-
-4.`cd Fast-Api-example`
-
-5.Use Docker-Compose to spin up containers `docker-compose up -d --build`
-
-6.If everything completes should be available on [notes](http://localhost:8002/notes)
-
-7.Docs are generated on [docs](http://localhost:8002/docs)
+    sh run.sh or uvicorn app.main:application --host 127.0.0.1 --port 5000
 
 ## Tests
 
 Tests are available using pytest
-Run them using `pytest .` while in the root directory (/Fast-Api-example)
+Run them using `pytest .` while in the root directory (/eblocks_code)
 
 ## Documentation
 
-Open API Documentation is provided by [Redoc](http://localhost:8002/redoc)
+Open API Documentation is provided by [Redoc](http://localhost:5000/redoc)
+
+or 
+
+http://localhost:5000/docs

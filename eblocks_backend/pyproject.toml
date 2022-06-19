@@ -1,8 +1,8 @@
 [tool.poetry]
 name = "app"
 version = "0.0.1"
-description = "Backend logic implementation for https://github.com/gothinkster/realworld with awesome FastAPI"
-authors = ["Nik Sidnev <sidnev.nick@gmail.com>"]
+description = ""
+authors = ["Tafadzwa Mutero <tafadzwamutero4@gmail.com>"]
 license = "MIT"
 
 [tool.poetry.dependencies]

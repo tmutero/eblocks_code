@@ -1,6 +1,12 @@
-# Angular Contact List App
+## Run the following commands to clone application ::
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.0.4.
+git clone https://github.com/tmutero/eblocks_code.git
+
+cd eblocks_code/eblocks_front
+
+## Install Required packages
+
+Run `ng install`
 
 ## Development server
 
